@@ -116,7 +116,6 @@ const RADIX_10 = 10
 /*
 *求数据的最大位数,决定排序次数
  */
-
 func maxbit(data []*Job) int {
 	n := len(data)
 	d := 1 //保存最大的位数
@@ -130,7 +129,13 @@ func maxbit(data []*Job) int {
 	return d
 }
 
-
+/*
+基数排序
+0 计算最大比特位数bits，每位bit进行分散、编号、收集
+1 分散：计数器，每次循环，统计该位上数字个数
+2 编号：计数器中，count[j]=[j-1]+[j]，计算出位置（基数排序中，只比较当前位，其他位不考虑）
+3 收集：根据计数器中排序的位置收集各个数字，收集的时候，要注意，从队尾开始遍历确认每个数值的位置（原因：后入计数器的肯定是前一个bit位大的，所以后入计数器的要先收集，这个是重点）
+ */
 func radixsort(data []*Job) {
 	d := maxbit(data)
 	tmp := make([]*Job, len(data), len(data))

@@ -1,6 +1,7 @@
 package jobSchedule
 
 import (
+	"fmt"
 	"reflect"
 	"testing"
 )
@@ -20,27 +21,27 @@ func Test_JobSchedule(t *testing.T){
 	}
 }
 
-//func Test_radixSort(t *testing.T){
-//	jobs:=[]*Job{
-//		{1,44,3},
-//		{1,22,3},
-//		{1,41,3},
-//		{1,41,3},
-//		{1,47,3},
-//		{1,13,3},
-//		{1,48,3},
-//		{1,35,3},
-//		{1,48,3},
-//		{1,26,3},
-//		{1,21,3},
-//		{1,39,3},
-//	}
-//	radixsort(jobs)
-//	for i:=range jobs{
-//		fmt.Println(jobs[i].end)
-//	}
-//
-//}
+func Test_radixSort(t *testing.T){
+	jobs:=[]*Job{
+		{1,44,3},
+		{1,22,3},
+		{1,41,3},
+		{1,41,3},
+		{1,47,3},
+		{1,13,3},
+		{1,48,3},
+		{1,35,3},
+		{1,48,3},
+		{1,26,3},
+		{1,21,3},
+		{1,39,3},
+	}
+	radixsort(jobs)
+	for i:=range jobs{
+		fmt.Println(jobs[i].end)
+	}
+
+}
 
 func Benchmark_JobSchedule(b *testing.B){
 	b.ResetTimer()
